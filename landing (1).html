@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Our Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #ffffff;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .page {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== BUTTONS SECTION - full viewport center ===== */
+  .buttons-screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    padding: 40px 0;
+  }
+
+  .btn {
+    display: block;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 22px 28px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+
+  /* Glass shine */
+  .btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 45%);
+    pointer-events: none;
+  }
+
+  .btn:active { transform: scale(0.96); }
+
+  /* Highlighted keyword inside button */
+  .btn .highlight {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    padding: 2px 10px;
+    border-radius: 8px;
+    margin: 0 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Button 1 - Orange */
+  .btn-live {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    box-shadow: 0 6px 24px rgba(234, 88, 12, 0.45);
+  }
+  .btn-live:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(234, 88, 12, 0.55);
+  }
+
+  /* Button 2 - Blue */
+  .btn-group {
+    background: linear-gradient(135deg, #0ea5e9, #0369a1);
+    box-shadow: 0 6px 24px rgba(3, 105, 161, 0.45);
+  }
+  .btn-group:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(3, 105, 161, 0.55);
+  }
+
+  /* Button 3 - Green */
+  .btn-msg {
+    background: linear-gradient(135deg, #22c55e, #15803d);
+    box-shadow: 0 6px 24px rgba(21, 128, 61, 0.45);
+  }
+  .btn-msg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(21, 128, 61, 0.55);
+  }
+
+  /* Animations */
+  .btn:nth-child(1) { animation: popIn 0.4s ease 0.1s both, glow1 3s ease-in-out 1.5s infinite; }
+  .btn:nth-child(2) { animation: popIn 0.4s ease 0.25s both; }
+  .btn:nth-child(3) { animation: popIn 0.4s ease 0.4s both; }
+
+  @keyframes popIn {
+    0% { opacity: 0; transform: scale(0.9) translateY(16px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  @keyframes glow1 {
+    0%, 100% { box-shadow: 0 6px 24px rgba(234, 88, 12, 0.45); }
+    50% { box-shadow: 0 6px 36px rgba(234, 88, 12, 0.65); }
+  }
+
+  /* Scroll hint arrow */
+  .scroll-hint {
+    text-align: center;
+    padding-bottom: 8px;
+    animation: fadeIn 1s ease 1.2s both;
+  }
+
+  .scroll-hint svg {
+    animation: bounceDown 2s ease infinite 2s;
+    color: #d1d5db;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ===== TESTIMONIALS SECTION ===== */
+  .testimonials-section {
+    padding: 16px 0 48px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: #e5e7eb; }
+
+  .divider-text {
+    font-size: 12px;
+    font-weight: 800;
+    color: #b0b5c0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .testimonial {
+    background: #f8fafc;
+    border: 1px solid #f0f0f5;
+    border-radius: 16px;
+    padding: 18px 20px;
+  }
+
+  .t-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .t-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .t-name { font-size: 14px; font-weight: 800; color: #1a1a2e; }
+  .t-tag { font-size: 11px; font-weight: 700; color: #9ca3af; }
+  .t-stars { font-size: 12px; letter-spacing: 1px; margin-left: auto; }
+
+  .t-text {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  .t-profit {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 4px 10px;
+    background: rgba(34, 197, 94, 0.08);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #16a34a;
+  }
+
+  /* Bottom repeat CTA */
+  .bottom-cta {
+    text-align: center;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f5;
+  }
+
+  .bottom-join {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0ea5e9, #0369a1);
+    box-shadow: 0 4px 16px rgba(3, 105, 161, 0.35);
+    transition: all 0.25s;
+  }
+
+  .bottom-join:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(3, 105, 161, 0.5);
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 400px) {
+    .btn { font-size: 16px; padding: 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- SCREEN 1: Just buttons, nothing else -->
+  <div class="buttons-screen">
+
+    <a class="btn btn-live" href="https://t.me/+2O3_XlJrRSkxOGVl" target="_blank" rel="noopener">
+      🔑 &nbsp;Get <span class="highlight">Live Account</span> Details
+    </a>
+
+    <a class="btn btn-group" href="https://t.me/+2O3_XlJrRSkxOGVl" target="_blank" rel="noopener">
+      ✈️ &nbsp;Join <span class="highlight">Free Telegram</span> Group
+    </a>
+
+    <a class="btn btn-msg" href="https://t.me/CortexTickBot" target="_blank" rel="noopener">
+      💬 &nbsp;Click to <span class="highlight">Message Us</span>
+    </a>
+
+    <div class="scroll-hint">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5"/><path d="M7 6l5 5 5-5"/></svg>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: Testimonials on scroll -->
+  <div class="testimonials-section">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">What traders say</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="testimonials">
+
+      <div class="testimonial">
+        <div class="t-header">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #f97316, #ea580c);">R</div>
+          <div>
+            <div class="t-name">Rahul M.</div>
+            <div class="t-tag">Trading since 3 months</div>
+          </div>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="t-text">"I was skeptical at first, but the results speak for themselves. The bot runs 24/7 and I just check my profits daily. Best decision I made!"</div>
+        <div class="t-profit">📈 +18.2% in 2 months</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="t-header">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #0ea5e9, #0369a1);">A</div>
+          <div>
+            <div class="t-name">Ahmed K.</div>
+            <div class="t-tag">Trading since 6 months</div>
+          </div>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="t-text">"The investor password let me verify everything before investing. Fully transparent and the Telegram group is super active with daily updates."</div>
+        <div class="t-profit">📈 Consistent weekly profits</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="t-header">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #a855f7, #7c3aed);">S</div>
+          <div>
+            <div class="t-name">Samantha L.</div>
+            <div class="t-tag">Trading since 4 months</div>
+          </div>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="t-text">"Zero trading experience and this was so easy to start. The team responds instantly on Telegram and guided me through everything step by step."</div>
+        <div class="t-profit">📈 +$1,200 profit so far</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="t-header">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #22c55e, #15803d);">P</div>
+          <div>
+            <div class="t-name">Priya D.</div>
+            <div class="t-tag">Trading since 8 months</div>
+          </div>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="t-text">"Finally a gold trading system that actually works. I can see the live results anytime with the investor password. No hidden tricks, pure transparency."</div>
+        <div class="t-profit">📈 +23% overall return</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="t-header">
+          <div class="t-avatar" style="background: linear-gradient(135deg, #ec4899, #db2777);">M</div>
+          <div>
+            <div class="t-name">Mohammed J.</div>
+            <div class="t-tag">Trading since 5 months</div>
+          </div>
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="t-text">"The community is amazing. Everyone helps each other and the admin shares every single trade result. I've tried many groups before — this one is real."</div>
+        <div class="t-profit">📈 Steady passive income</div>
+      </div>
+
+    </div>
+
+    <div class="bottom-cta">
+      <a class="bottom-join" href="https://t.me/+2O3_XlJrRSkxOGVl" target="_blank" rel="noopener">
+        ✈️ &nbsp;Join <span class="highlight" style="background:rgba(255,255,255,0.2)">Free Telegram</span> Now
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
